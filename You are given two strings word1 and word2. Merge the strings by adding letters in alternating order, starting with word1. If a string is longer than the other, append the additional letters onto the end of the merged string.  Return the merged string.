@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+        string merged;
+        int i = 0, j = 0; // Initialize two pointers, one for each string.
+
+        // Alternately choose characters from each pointer
+        while (i < word1.size() || j < word2.size()) {
+            if (i < word1.size()) {
+                merged += word1[i++]; // Add character from word1 and move pointer upwards.
+            }
+            if (j < word2.size()) {
+                merged += word2[j++]; // Add character from word2 and move pointer upwards.
+            }
+        }
+
+        return merged;
+    }
+};
+
+int main() {
+    Solution solution;
+    string word1, word2;
+
+    // Take input from the user
+    cout << "Enter the first string: ";
+    cin >> word1;
+    cout << "Enter the second string: ";
+    cin >> word2;
+
+    // Call the merge function and display the result
+    string result = solution.mergeAlternately(word1, word2);
+    cout << "Merged string: " << result << endl;
+
+    return 0;
+}
